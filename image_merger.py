@@ -124,5 +124,7 @@ class ImageMerger():
         endimage = None
         for image in imageset:
             if endimage is None:
+                endimage = image
+            else:
                 _, endimage = self.merge_images(endimage, image)
         return endimage
