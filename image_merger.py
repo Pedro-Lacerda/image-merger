@@ -75,7 +75,11 @@ class ImageMerger():
                     val = int(sum(pix_diff) / 3)
                     pix_diff = list(map(lambda x: x**2, pix_diff))
                     diff_sum = sum(pix_diff)**0.5
-                    print_img_row.append([val, val, val])
+                    
+                    if np.all(pix_diff) <= 1:
+                        print_img_row.append(pixel_1)
+                    else:
+                        print_img_row.append([val, val, val])
 
                 for pix in img2[y][(width - i):]:
                     print_img_row.append(pix)
@@ -96,6 +100,7 @@ class ImageMerger():
                 index_d = len(pics) - 1
 
         return best_d, pics[index_d]
+    
 
     def generate_video(self, imgs, framerate=30, name='video'):
         """Recebe uma lista de imagens e gera um vídeo com as imagens em
