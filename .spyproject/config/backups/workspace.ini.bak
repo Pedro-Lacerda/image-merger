@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['image_stitcher.py', 'canny_edge_detection_trackbar.py', 'image_diff.py']
+recent_files = ['image_diff.py', 'image_alignment.py', 'image_stitcher.py']
 

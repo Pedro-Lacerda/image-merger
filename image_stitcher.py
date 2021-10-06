@@ -15,18 +15,17 @@ for folder in myFolders:
     for imgN in myList:
         curImg = cv2.imread(f'{path}/{imgN}')
         
-        # Se descomentada, redimensiona as imagens para acelerar 
-        # o processamento
+        # Opções de pre-processamento de imagens
+        curImg = cv2.resize(curImg,(0,0),None,0.1,0.1)
         
-        # curImg = cv2.resize(curImg,(0,0),None,0.2,0.2)
         images.append(curImg)
 
     # Define a classe 'stitcher' e faz a mesclagem das imagens
     stitcher = cv2.Stitcher.create()
     (status,result) = stitcher.stitch(images)
     if (status == cv2.STITCHER_OK):
-        # Salva e a mostra na tela a imagem resultante
-        cv2.imwrite("output_"+folder+".jpg", result)
+        # Salva e mostra na tela a imagem resultante
+        cv2.imwrite("Stiching_output/output_"+folder+".jpg", result)
         print('Panorama Generated')
         cv2.imshow(folder,result)
         cv2.waitKey(1)

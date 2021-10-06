@@ -3,8 +3,8 @@ import cv2
 def nothing(x):
     pass
 
-img = cv2.imread("output_amazonia_up_test.jpg")
-res = cv2.resize(img,(800,300))
+img = cv2.imread("disaster_dataset/landslide_oso_2014_far.jpg")
+res = cv2.resize(img,(0,0),None,0.7,0.7)
 cv2.namedWindow('canny')
 switch = '0: OFF \n1 : ON'
 cv2.createTrackbar(switch, 'canny', 0, 1, nothing)
